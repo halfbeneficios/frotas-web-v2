@@ -15,13 +15,28 @@ class RegionSeeder extends Seeder
      */
     public function run()
     {
-        
+
         DB::table('regions')->insert([
-            ['name' => 'Norte'],
-            ['name' => 'Nordeste'],
-            ['name' => 'Sudeste'],
-            ['name' => 'Centro-Oeste'],
-            ['name' => 'Sul']
+            [
+                'id' => 1,
+                'name' => 'Norte'
+            ],
+            [
+                'id' => 2,
+                'name' => 'Nordeste'
+            ],
+            [
+                'id' => 3,
+                'name' => 'Sudeste'
+            ],
+            [
+                'id' => 4,
+                'name' => 'Centro-Oeste'
+            ],
+            [
+                'id' => 5,
+                'name' => 'Sul'
+            ]
         ]);
 
     }

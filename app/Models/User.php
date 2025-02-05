@@ -19,21 +19,14 @@ class User extends Authenticatable implements FilamentUser
     use Notifiable;
     use TwoFactorAuthenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     */
     protected $fillable = [
         'type_user_id',
         'name',
         'email',
         'password',
-        'active',
         'logged_at',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -41,16 +34,6 @@ class User extends Authenticatable implements FilamentUser
         'two_factor_secret',
     ];
 
-    /**
-     * The accessors to append to the model's array form.
-     */
-    protected $appends = [
-        'profile_photo',
-    ];
-
-    /**
-     * Get the attributes that should be cast.
-     */
     protected function casts(): array
     {
         return [

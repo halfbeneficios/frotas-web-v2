@@ -9,8 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Region extends Model
 {
 
-    use HasFactory;
-
     protected $fillable = [
         'name',
     ];

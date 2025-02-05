@@ -10,8 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class State extends Model
 {
 
-    use HasFactory;
-
     protected $fillable = [
         'name',
         'initials',

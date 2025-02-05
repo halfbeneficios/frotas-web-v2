@@ -18,7 +18,27 @@ class TypeUserSeeder extends Seeder
             [
                 'id' => 1,
                 'role' => 'Administrador'
-            ]
+            ],
+            [
+                'id' => 2,
+                'role' => 'Colaborador Interno'
+            ],
+            [
+                'id' => 3,
+                'role' => 'Gestor Master'
+            ],
+            [
+                'id' => 4,
+                'role' => 'Gestor Responsável'
+            ],
+            [
+                'id' => 5,
+                'role' => 'Empresa Credenciada'
+            ],
+            [
+                'id' => 6,
+                'role' => 'Motorista'
+            ],
         ]);
 
     }

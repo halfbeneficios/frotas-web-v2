@@ -18,11 +18,17 @@ class Address extends Model
         'postal_code',
         'complement',
         'city_id',
+        'state_id',
     ];
 
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function state(): BelongsTo
+    {
+        return $this->belongsTo(State::class);
     }
 
 }

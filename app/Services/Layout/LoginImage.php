@@ -7,6 +7,7 @@ use Swis\Filament\Backgrounds\Image;
 
 class LoginImage implements ProvidesImages
 {
+    
     public static function make(): static
     {
         return app(static::class);
@@ -19,4 +20,5 @@ class LoginImage implements ProvidesImages
             'Half Beneficios'
         );
     }
+
 }

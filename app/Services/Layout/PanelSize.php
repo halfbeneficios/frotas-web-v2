@@ -12,7 +12,7 @@ class PanelSize
 
         $url = url()->current();
 
-        /* if(str_contains($url, '/tags')){
+        /* if(str_contains($url, '/')){
 
             return MaxWidth::FiveExtraLarge;
 
