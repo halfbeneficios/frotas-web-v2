@@ -2,6 +2,7 @@
 
 namespace App\Services\Layout;
 
+use App\Models\User;
 use Filament\AvatarProviders\Contracts\AvatarProvider;
 use Filament\Facades\Filament;
 use Filament\Support\Facades\FilamentColor;
@@ -19,9 +20,17 @@ class Avatar implements AvatarProvider
 
         $user = Auth::user();
 
-        if(!is_null($user->profile_photo)){
+        if(!is_null($user) && $user->type_user_id != 1){
 
-            $logo = Storage::cloud()->url($user->profile_photo); // Atualizar para tipo de usuários diferentes
+            $user = User::with(['company', 'accredited', 'employee', 'manager', 'driver'])->find($user->id);
+
+            if($user->type_user_id == 2) $logo = Storage::cloud()->url($user->employee->profile_photo);
+
+            if($user->type_user_id == 3) $logo = Storage::cloud()->url($user->company->logo_path);
+
+            if($user->type_user_id == 4) $logo = Storage::cloud()->url($user->manager->profile_photo);
+
+            if($user->type_user_id == 5) $logo = Storage::cloud()->url($user->accredited->logo_path);
 
             return $logo;
 
