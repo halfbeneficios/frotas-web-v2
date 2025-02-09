@@ -25,11 +25,11 @@ class TypeUserSeeder extends Seeder
             ],
             [
                 'id' => 3,
-                'role' => 'Gestor Master'
+                'role' => 'Empresa Parceira'
             ],
             [
                 'id' => 4,
-                'role' => 'Gestor Responsável'
+                'role' => 'Gestor de Frota'
             ],
             [
                 'id' => 5,

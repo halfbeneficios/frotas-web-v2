@@ -9,5 +9,6 @@ export default {
         './resources/views/livewire/**/*.blade.php',
         './resources/views/components/**/*.blade.php',
         './resources/views/vendor/**/*.blade.php',
+        './resources/views/**/*.blade.php',
     ],
 }

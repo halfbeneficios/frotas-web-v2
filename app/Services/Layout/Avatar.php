@@ -21,7 +21,7 @@ class Avatar implements AvatarProvider
 
         if(!is_null($user->profile_photo)){
 
-            $logo = Storage::cloud()->url($user->profile_photo);
+            $logo = Storage::cloud()->url($user->profile_photo); // Atualizar para tipo de usuários diferentes
 
             return $logo;
 
