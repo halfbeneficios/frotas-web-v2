@@ -69,15 +69,18 @@ class AccreditedPanelProvider extends PanelProvider
 
                 HooksHelperPlugin::make(),
 
-                AuthUIEnhancerPlugin::make(),
+                AuthUIEnhancerPlugin::make()
+                ->formPanelWidth('40%')
+                ->formPanelBackgroundColor(Color::Zinc, '300'),
 
             ])
-            ->brandLogo(asset('images/layout/logo-panel.png'))
-            ->darkModeBrandLogo(asset('images/layout/logo-panel-dark.png'))
+            ->brandLogo(asset('images/layout/logo-accredited-panel.png'))
+            ->darkModeBrandLogo(asset('images/layout/logo-accredited-panel-dark.png'))
             ->brandLogoHeight('2.8rem')
             ->sidebarCollapsibleOnDesktop()
             ->maxContentWidth(PanelSize::default())
             ->defaultThemeMode(ThemeMode::Light)
+            ->darkMode(false)
             ->databaseNotifications()
             ->defaultAvatarProvider(Avatar::class)
             ->unsavedChangesAlerts(false)

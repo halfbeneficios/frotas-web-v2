@@ -18,8 +18,8 @@ class User extends Authenticatable implements FilamentUser
 
     use HasApiTokens;
     use HasFactory;
-    use Notifiable;
     use TwoFactorAuthenticatable;
+    use Notifiable;
 
     protected $fillable = [
         'type_user_id',
@@ -34,6 +34,10 @@ class User extends Authenticatable implements FilamentUser
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+    ];
+
+    protected $appends = [
+        'profile_photo',
     ];
 
     protected function casts(): array
@@ -141,7 +145,27 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return true;
+
+        if ($panel->getId() === 'admin') {
+
+            return $this->type_user_id === 1 || $this->type_user_id === 2;
+
+        }
+
+        if ($panel->getId() === 'company') {
+
+            return $this->type_user_id === 3 || $this->type_user_id === 4;
+
+        }
+
+        if ($panel->getId() === 'accredited') {
+
+            return $this->type_user_id === 5;
+
+        }
+
+        return false;
+
     }
 
 }

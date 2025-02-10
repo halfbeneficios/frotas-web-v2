@@ -30,7 +30,7 @@ class AdminPanelProvider extends PanelProvider
 
     public function panel(Panel $panel): Panel
     {
-        
+
         return $panel
             ->default()
             ->id('admin')
@@ -78,16 +78,20 @@ class AdminPanelProvider extends PanelProvider
                 HooksHelperPlugin::make(),
 
             ])
-            ->brandLogo(asset('images/layout/logo-panel.png'))
-            ->darkModeBrandLogo(asset('images/layout/logo-panel-dark.png'))
+            ->brandLogo(asset('images/layout/logo-admin-panel.png'))
+            ->darkModeBrandLogo(asset('images/layout/logo-admin-panel-dark.png'))
             ->brandLogoHeight('2.8rem')
             ->sidebarCollapsibleOnDesktop()
             ->maxContentWidth(PanelSize::default())
             ->defaultThemeMode(ThemeMode::Light)
+            ->darkMode(false)
             ->databaseNotifications()
             ->defaultAvatarProvider(Avatar::class)
             ->unsavedChangesAlerts(false)
-            ->databaseNotificationsPolling('30s');
+            ->databaseNotificationsPolling('30s')
+            ->navigationGroups([
+                'Configurações',
+            ]);
 
     }
 
