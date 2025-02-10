@@ -1,0 +1,72 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+@config 'tailwind.config.js';
+
+.fi-sidebar {
+    @apply bg-primary-950 dark:bg-transparent !important;
+}
+.fi-sidebar-group div span {
+    @apply text-primary-400;
+}
+.fi-sidebar-item-icon {
+    @apply text-primary-100;
+}
+.fi-sidebar-group-icon {
+    @apply text-primary-100;
+}
+.fi-sidebar-group div span {
+    @apply text-primary-100;
+}
+.fi-sidebar-item a {
+    @apply text-primary-100;
+}
+.fi-sidebar-item-label {
+    @apply text-primary-100;
+}
+.fi-sidebar-item a:hover {
+    @apply text-primary-500 bg-primary-800;
+}
+.fi-sidebar-item-active > a:first-child {
+    @apply text-white bg-primary-800;
+}
+.fi-sidebar-item-active .fi-sidebar-item-icon {
+    @apply text-primary-50;
+}
+.fi-main-ctn {
+    @apply dark:bg-transparent;
+}
+
+.bg-gray-100 {
+    background-color: rgb(243 244 246);
+}
+
+.order-section .fi-section-content-ctn .fi-section-content {
+    padding: 0 !important;
+}
+
+.mr-3 {
+    margin-right: 0.75rem !important;
+}
+
+.text-red-500 {
+    --tw-text-opacity: 1;
+    color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
+.flex-header {
+    @apply flex gap-x-3
+}
+
+.flex-custom-card {
+    @apply flex items-center gap-x-3;
+}
+
+.file-upload-custom .filepond--file-info {
+    display: none;
+}
+
+.panel-switch-modal .fi-modal-content {
+    align-items: center !important;
+    justify-content: center !important;
+}
+

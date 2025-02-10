@@ -4,7 +4,6 @@ namespace App\Providers\Filament;
 
 use Agencetwogether\HooksHelper\HooksHelperPlugin;
 use App\Services\Layout\Avatar;
-use App\Services\Layout\LoginImage;
 use App\Services\Layout\PanelSize;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
@@ -23,27 +22,25 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
-use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
 
-class AdminPanelProvider extends PanelProvider
+class CompanyPanelProvider extends PanelProvider
 {
 
     public function panel(Panel $panel): Panel
     {
-        
+
         return $panel
-            ->default()
-            ->id('admin')
-            ->path('admin')
+            ->id('company')
+            ->path('company')
             ->login()
             ->passwordReset()
             ->colors([
                 'primary' => Color::Blue,
             ])
-            ->viteTheme('resources/css/filament/admin/theme.css')
-            ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
-            ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
-            ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
+            ->viteTheme('resources/css/filament/company/theme.css')
+            ->discoverResources(in: app_path('Filament/Company/Resources'), for: 'App\\Filament\\Company\\Resources')
+            ->discoverPages(in: app_path('Filament/Company/Pages'), for: 'App\\Filament\\Company\\Pages')
+            ->discoverWidgets(in: app_path('Filament/Company/Widgets'), for: 'App\\Filament\\Company\\Widgets')
             ->pages([
                 Pages\Dashboard::class,
             ])
@@ -66,12 +63,6 @@ class AdminPanelProvider extends PanelProvider
                 Authenticate::class,
             ])
             ->plugins([
-
-                FilamentBackgroundsPlugin::make()
-                ->showAttribution(false)
-                ->imageProvider(
-                    LoginImage::make()
-                ),
 
                 SpotlightPlugin::make(),
 
