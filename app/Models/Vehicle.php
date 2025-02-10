@@ -12,6 +12,10 @@ class Vehicle extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'vehicle_files' => 'array',
+    ];
+
     protected $fillable = [
         'registration',
         'card_number',

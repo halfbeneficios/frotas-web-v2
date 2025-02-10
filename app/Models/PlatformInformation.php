@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class PlatformInformation extends Model
 {
 
+    protected $casts = [
+        'attachment_files' => 'array',
+    ];
+
     protected $fillable = [
         'cnpj',
         'business_name',
@@ -26,6 +30,7 @@ class PlatformInformation extends Model
         'responsible_email',
         'responsible_phone',
         'address_id',
+        'attachment_files',
         'observation'
     ];
 

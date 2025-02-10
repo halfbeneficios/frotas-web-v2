@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class CompanyContract extends Model
 {
 
+    protected $casts = [
+        'contract_files' => 'array',
+    ];
+
     protected $fillable = [
         'contract_number',
         'description',

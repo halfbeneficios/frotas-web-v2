@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class AccreditedLocation extends Model
 {
 
+    protected $casts = [
+        'accredited_photos' => 'array',
+    ];
+
     protected $fillable = [
         'accredited_id',
         'description',

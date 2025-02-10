@@ -11,6 +11,10 @@ class VehicleTrip extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'attachment_files' => 'array',
+    ];
+
     protected $fillable = [
         'registration',
         'title',

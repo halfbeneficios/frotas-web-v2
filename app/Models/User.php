@@ -79,11 +79,6 @@ class User extends Authenticatable implements FilamentUser
         return $this->hasMany(RecentActivity::class);
     }
 
-    public function platform_documents(): HasMany
-    {
-        return $this->hasMany(PlatformDocument::class);
-    }
-
     public function api_keys(): HasMany
     {
         return $this->hasMany(ApiKey::class);

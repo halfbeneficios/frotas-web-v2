@@ -11,6 +11,10 @@ class VehicleInsurance extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'document_files' => 'array',
+    ];
+
     protected $fillable = [
         'name',
         'document_number',

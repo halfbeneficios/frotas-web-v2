@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class CompanyContractActivity extends Model
 {
 
+    protected $casts = [
+        'attachment_files' => 'array',
+    ];
+
     protected $fillable = [
         'message',
         'attachment_files',

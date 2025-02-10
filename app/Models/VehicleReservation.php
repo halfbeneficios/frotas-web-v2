@@ -11,6 +11,10 @@ class VehicleReservation extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'attachment_files' => 'array',
+    ];
+
     protected $fillable = [
         'code',
         'title',

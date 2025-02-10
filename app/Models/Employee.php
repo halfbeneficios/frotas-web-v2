@@ -11,6 +11,10 @@ class Employee extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'employee_files' => 'array',
+    ];
+
     protected $fillable = [
         'registration',
         'full_name',

@@ -11,6 +11,10 @@ class VehicleMileage extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'attachment_files' => 'array',
+    ];
+
     protected $fillable = [
         'current_km',
         'new_km',

@@ -11,6 +11,10 @@ class VehicleExpense extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'attachment_files' => 'array',
+    ];
+
     protected $fillable = [
         'code',
         'description',

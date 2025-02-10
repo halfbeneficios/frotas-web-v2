@@ -11,6 +11,10 @@ class VehicleInspection extends Model
 
     use HasFactory;
 
+    protected $casts = [
+        'inspection_files' => 'array',
+    ];
+
     protected $fillable = [
         'code',
         'checklist_date',

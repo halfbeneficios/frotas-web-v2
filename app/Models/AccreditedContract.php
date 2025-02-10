@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class AccreditedContract extends Model
 {
 
+    protected $casts = [
+        'contract_files' => 'array',
+    ];
+
     protected $fillable = [
         'contract_number',
         'description',

@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class DriverDocument extends Model
 {
 
+    protected $casts = [
+        'document_files' => 'array',
+    ];
+
     protected $fillable = [
         'name',
         'document_number',

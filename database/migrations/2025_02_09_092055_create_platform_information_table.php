@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('responsible_email')->nullable();
             $table->string('responsible_phone')->nullable();
             $table->foreignId('address_id')->constrained();
+            $table->text('attachment_files')->nullable();
             $table->text('observation')->nullable();
             $table->timestamps();
         });
