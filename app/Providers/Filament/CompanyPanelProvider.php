@@ -5,6 +5,7 @@ namespace App\Providers\Filament;
 use Agencetwogether\HooksHelper\HooksHelperPlugin;
 use App\Services\Layout\Avatar;
 use App\Services\Layout\PanelSize;
+use DiogoGPinto\AuthUIEnhancer\AuthUIEnhancerPlugin;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -67,6 +68,8 @@ class CompanyPanelProvider extends PanelProvider
                 SpotlightPlugin::make(),
 
                 HooksHelperPlugin::make(),
+
+                AuthUIEnhancerPlugin::make(),
 
             ])
             ->brandLogo(asset('images/layout/logo-panel.png'))

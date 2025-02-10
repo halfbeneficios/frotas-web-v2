@@ -10,5 +10,6 @@ export default {
         './resources/views/components/**/*.blade.php',
         './resources/views/vendor/**/*.blade.php',
         './resources/views/**/*.blade.php',
+        './vendor/diogogpinto/filament-auth-ui-enhancer/resources/**/*.blade.php',
     ],
 }
