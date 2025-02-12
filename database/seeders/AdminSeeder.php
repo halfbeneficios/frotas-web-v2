@@ -22,7 +22,7 @@ class AdminSeeder extends Seeder
             'password' => Hash::make('12345678'),
         ]);
 
-        User::create([
+        $userCompany = User::create([
             'type_user_id' => 3,
             'name' => 'Empresa do Sistema',
             'email' => 'empresa@admin.com',
