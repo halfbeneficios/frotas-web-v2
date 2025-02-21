@@ -8,12 +8,16 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListFleetTypes extends ListRecords
 {
+
     protected static string $resource = FleetTypeResource::class;
 
     protected function getHeaderActions(): array
     {
         return [
+
             Actions\CreateAction::make(),
+            
         ];
     }
+
 }

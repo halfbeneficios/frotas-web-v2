@@ -20,7 +20,11 @@ class FleetTypeResource extends Resource
 
     protected static ?string $navigationLabel = 'Tipo de Frota';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    protected static ?string $navigationGroup = 'Operacional';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

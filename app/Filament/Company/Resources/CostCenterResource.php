@@ -21,7 +21,9 @@ class CostCenterResource extends Resource
 
     protected static ?string $navigationLabel = 'Centros de Custo';
 
-    protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
+
+    protected static ?string $navigationGroup = 'Operacional';
 
     protected static ?int $navigationSort = 1;
 

@@ -8,12 +8,18 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListSubsidiaries extends ListRecords
 {
+
     protected static string $resource = SubsidiaryResource::class;
 
     protected function getHeaderActions(): array
     {
+
         return [
+
             Actions\CreateAction::make(),
+            
         ];
+
     }
+
 }

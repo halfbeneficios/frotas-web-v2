@@ -21,7 +21,11 @@ class AccreditedGroupResource extends Resource
 
     protected static ?string $navigationLabel = 'Grupos de Credenciadas';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
+
+    protected static ?string $navigationGroup = 'Operacional';
+
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {

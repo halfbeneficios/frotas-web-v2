@@ -8,12 +8,18 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListResultCenters extends ListRecords
 {
+
     protected static string $resource = ResultCenterResource::class;
 
     protected function getHeaderActions(): array
     {
+
         return [
+
             Actions\CreateAction::make(),
+            
         ];
+
     }
+
 }

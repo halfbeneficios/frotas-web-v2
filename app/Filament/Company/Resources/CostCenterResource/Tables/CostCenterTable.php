@@ -5,12 +5,15 @@ namespace CostCenterResource\Filament\Company\Resources\CostCenterResource\Table
 use Filament\Tables\Table;
 use Campidellis\FilamentHelpers\Contracts\TableBuilder;
 use Filament\Support\Enums\Alignment;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\HtmlString;
 
 class CostCenterTable extends TableBuilder
 {
+
     public function table(Table $table): Table
     {
 
@@ -20,7 +23,17 @@ class CostCenterTable extends TableBuilder
             ->headerActions([])
             ->columns(self::columns())
             ->filters([])
-            ->actions([])
+            ->actions([
+
+                ActionGroup::make([
+
+                    EditAction::make(),
+
+                ])
+                ->tooltip('Ações')
+                ->icon('heroicon-m-ellipsis-horizontal'),
+
+            ])
             ->defaultSort(fn ($query) => $query->orderBy('active', 'desc'))
             ->emptyStateDescription('Nenhum centro de custo foi cadastrado')
             ->striped();
@@ -68,7 +81,7 @@ class CostCenterTable extends TableBuilder
         $content = '<div class="flex-header">' . $icon . 'Centros de Custo</div>';
 
         return new HtmlString($content);
-        
+
     }
 
 }

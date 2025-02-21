@@ -21,7 +21,11 @@ class ResultCenterResource extends Resource
 
     protected static ?string $navigationLabel = 'Centro de Resultados';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office';
+
+    protected static ?string $navigationGroup = 'Operacional';
+
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

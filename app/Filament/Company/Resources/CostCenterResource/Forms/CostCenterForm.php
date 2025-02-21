@@ -34,7 +34,7 @@ class CostCenterForm extends FormBuilder
                             ->schema(static::getFormSchema('info'))
                             ->columns(2),
 
-                        Section::make('Endereço')
+                        Section::make('Endereço do Centro')
                             ->schema(static::getFormSchema('address'))
                             ->columns(2),
 
@@ -108,6 +108,7 @@ class CostCenterForm extends FormBuilder
                             ibgeColumn: 'ibge_code',
                         )
                         ->label('CEP')
+                        ->required()
                         ->live(true)
                         ->columnSpan(['2xl' => 1]),
 

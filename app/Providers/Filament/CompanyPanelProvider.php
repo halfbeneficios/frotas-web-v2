@@ -84,7 +84,14 @@ class CompanyPanelProvider extends PanelProvider
             ->databaseNotifications()
             ->defaultAvatarProvider(Avatar::class)
             ->unsavedChangesAlerts(false)
-            ->databaseNotificationsPolling('30s');
+            ->databaseNotificationsPolling('30s')
+            ->navigationGroups([
+                'Operacional',
+                'Equipe e Frota',
+                'Orçamentos',
+                'Relatórios',
+                'Configurações',
+            ]);
 
     }
 
