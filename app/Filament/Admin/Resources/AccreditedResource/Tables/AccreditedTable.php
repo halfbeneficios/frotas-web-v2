@@ -45,17 +45,14 @@ class AccreditedTable extends TableBuilder
 
         return [
 
+            TextColumn::make('id')
+                ->label('ID')
+                ->searchable(),
+
             TextColumn::make('business_name')
                 ->label('Razão social')
                 ->limit(30)
                 ->tooltip(fn($record) => $record->business_name)
-                ->sortable()
-                ->searchable(),
-
-            TextColumn::make('fantasy_name')
-                ->label('Nome Fantasia')
-                ->limit(30)
-                ->tooltip(fn($record) => $record->fantasy_name)
                 ->sortable()
                 ->searchable(),
 
@@ -76,7 +73,7 @@ class AccreditedTable extends TableBuilder
 
             TextColumn::make('active')
                 ->label('Status')
-                ->formatStateUsing(fn (string $state): string => $state == 0 ? 'Inativo' : 'Ativo')
+                ->formatStateUsing(fn (string $state): string => $state == 0 ? 'Inativa' : 'Ativa')
                 ->icon(fn (string $state): string => match ($state) {
                     '1' => 'heroicon-o-check-circle',
                     '0' => 'heroicon-o-x-circle',

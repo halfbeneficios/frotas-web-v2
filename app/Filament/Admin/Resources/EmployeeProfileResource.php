@@ -21,7 +21,9 @@ class EmployeeProfileResource extends Resource
 
     protected static ?string $navigationLabel = 'Perfis De Colaboradores';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user';
+
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {

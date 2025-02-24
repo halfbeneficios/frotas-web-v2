@@ -21,7 +21,7 @@ class AccreditedResource extends Resource
 
     protected static ?string $navigationLabel = 'Credenciadas';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
 
     protected static ?string $navigationGroup = 'Administrativo';
 

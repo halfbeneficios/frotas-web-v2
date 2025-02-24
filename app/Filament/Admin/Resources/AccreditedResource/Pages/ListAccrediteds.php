@@ -16,10 +16,12 @@ class ListAccrediteds extends ListRecords
 
         return [
 
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Cadastrar Credenciada')
+                ->icon('heroicon-m-plus'),
 
         ];
 
     }
-    
+
 }

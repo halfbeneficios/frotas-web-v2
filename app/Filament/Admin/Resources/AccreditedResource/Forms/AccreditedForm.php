@@ -17,7 +17,6 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\ToggleButtons;
 use Illuminate\Support\Facades\Http;
 use Leandrocfe\FilamentPtbrFormFields\PhoneNumber;
 use Illuminate\Support\Str;
@@ -67,16 +66,16 @@ class AccreditedForm extends FormBuilder
 
             return [
 
-                Hidden::make('code')
-                    ->default(Str::upper(Str::random(8))),
+                Hidden::make('registration')
+                    ->default(Str::upper(Str::random(10))),
 
-                FileUpload::make('photo_url')
-                    ->label('Logo')
+                FileUpload::make('logo_path')
+                    ->label('Logo da Credenciada')
                     ->disk('s3')
                     ->directory('accredited-photos/' . Str::uuid())
                     ->avatar()
                     ->image()
-                    ->visibility('private')
+                    ->visibility('public')
                     ->maxSize(2048)
                     ->columnSpan([
                         '2xl' => 1,
@@ -110,14 +109,14 @@ class AccreditedForm extends FormBuilder
                             }))
                             ->columnSpan(2),
 
-                    TextInput::make('inscription')
+                    TextInput::make('state_register')
                         ->required()
                         ->label('Inscrição estadual')
                         ->suffixAction(
                             fn ($set) => Action::make('exempt-action')
                                 ->icon('heroicon-s-x-circle')
                                 ->action(function () use ($set) {
-                                    $set('inscription', 'ISENTO');
+                                    $set('state_register', 'ISENTO');
                                 })->label("Isento")
                         ),
 
@@ -166,20 +165,6 @@ class AccreditedForm extends FormBuilder
 
                 ])
                 ->columns(2),
-
-                Grid::make()->schema([
-
-                    /* Select::make('employee_id')->options(
-                        Employee::join('employee_groups', 'employees.employee_group_id', '=', 'employee_groups.id')
-                            ->where('employee_groups.is_seller', 1)
-                            ->pluck('employees.name', 'employees.id')
-                    )
-                    ->searchable()
-                    ->required()
-                    ->label('Vendedor responsável'), */
-
-                ])
-                ->columns(1),
 
             ];
 
@@ -256,12 +241,12 @@ class AccreditedForm extends FormBuilder
 
                 Grid::make()->schema([
 
-                    TextInput::make('resp_name')
+                    TextInput::make('responsible.full_name')
                         ->label('Nome do Responsável')
                         ->required()
                         ->columnSpan(2),
 
-                    TextInput::make('resp_cpf')
+                    TextInput::make('responsible.cpf')
                         ->mask("999.999.999-99")
                         ->label('CPF do Responsável')
                         ->validationAttribute('CPF')
@@ -272,15 +257,13 @@ class AccreditedForm extends FormBuilder
 
                 Grid::make()->schema([
 
-                    TextInput::make('resp_email')
-                        ->email()
-                        ->label('Email do Responsável')
+                    TextInput::make('responsible.rg')
+                        ->label('RG')
                         ->required(),
 
-                    PhoneNumber::make('resp_phone')
-                        ->label('Telefone do Responsável')
-                        ->required()
-                        ->tel(),
+                    TextInput::make('responsible.expediter')
+                        ->label('Orgão expedidor')
+                        ->required(),
 
                 ])
                 ->columns(2),
@@ -294,18 +277,10 @@ class AccreditedForm extends FormBuilder
 
             Toggle::make('active')
                 ->label('Status')
-                ->helperText('Define se o Integrador tem acesso ao sistema.')
+                ->helperText('Define se a credenciada está ativa.')
                 ->onColor('success')
                 ->offColor('danger')
                 ->default(1)
-                ->inline(false),
-
-            ToggleButtons::make('required_term')
-                ->label('Termo Obrigatório?')
-                ->boolean()
-                ->grouped()
-                ->helperText('Define se o termo de cadastro é ou não obrigatório.')
-                ->default(false)
                 ->inline(false),
 
             Placeholder::make('created_at')

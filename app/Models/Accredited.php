@@ -26,6 +26,7 @@ class Accredited extends Model
         'email',
         'logo_path',
         'address_id',
+        'accredited_responsible_id',
         'user_id',
         'active'
     ];
@@ -40,14 +41,14 @@ class Accredited extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function accredited_responsible(): BelongsTo
+    {
+        return $this->belongsTo(AccreditedResponsible::class);
+    }
+
     public function accredited_location(): HasOne
     {
         return $this->hasOne(AccreditedLocation::class);
-    }
-
-    public function accredited_responsibles(): HasMany
-    {
-        return $this->hasMany(AccreditedResponsible::class);
     }
 
     public function accredited_contracts(): HasMany

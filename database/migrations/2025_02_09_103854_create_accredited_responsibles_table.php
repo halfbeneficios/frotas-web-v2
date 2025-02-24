@@ -22,7 +22,6 @@ return new class extends Migration
             $table->date('birth')->nullable();
             $table->string('phone')->nullable();
             $table->string('role')->nullable();
-            $table->foreignId('accredited_id')->constrained();
             $table->timestamps();
         });
     }

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('logo_path')->nullable();
             $table->foreignId('address_id')->constrained();
+            $table->foreignId('accredited_responsible_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->boolean('active')->default(true);
             $table->timestamps();

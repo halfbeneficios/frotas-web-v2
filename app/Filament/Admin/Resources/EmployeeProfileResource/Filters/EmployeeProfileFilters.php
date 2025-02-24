@@ -8,10 +8,10 @@ use Campidellis\FilamentHelpers\Contracts\FiltersBuilder;
 
 class EmployeeProfileFilters extends FiltersBuilder
 {
+
     public function filters(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
+    
 }

@@ -7,19 +7,18 @@ use App\Models\City;
 use App\Models\Company;
 use App\Models\State;
 use Filament\Forms\Form;
-use Filament\Forms;
 use Campidellis\FilamentHelpers\Contracts\FormBuilder;
 use Filament\Forms\Components\Actions\Action;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\Hidden;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\ToggleButtons;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\ValidationException;
 use Leandrocfe\FilamentPtbrFormFields\PhoneNumber;
@@ -38,11 +37,11 @@ class CompanyForm extends FormBuilder
                 Group::make()
                     ->schema([
 
-                        Section::make('Dados da Credenciada')
-                            ->schema(static::getFormSchema('accredited'))
+                        Section::make('Dados da Empresa')
+                            ->schema(static::getFormSchema('company'))
                             ->columns(2),
 
-                        Section::make('Endereço da Credenciada')
+                        Section::make('Endereço da Empresa')
                             ->schema(static::getFormSchema('address'))
                             ->columns(2),
 
@@ -61,20 +60,20 @@ class CompanyForm extends FormBuilder
     public static function getFormSchema(string $section = null): array
     {
 
-        if ($section == "accredited") {
+        if ($section == "company") {
 
             return [
 
-                Hidden::make('code')
+                Hidden::make('inscription')
                     ->default(Str::upper(Str::random(8))),
 
-                FileUpload::make('photo_url')
+                FileUpload::make('logo_path')
                     ->label('Logo')
                     ->disk('s3')
-                    ->directory('accredited-photos/' . Str::uuid())
+                    ->directory('company-photos/' . Str::uuid())
                     ->avatar()
                     ->image()
-                    ->visibility('private')
+                    ->visibility('public')
                     ->maxSize(2048)
                     ->columnSpan([
                         '2xl' => 1,
@@ -108,14 +107,14 @@ class CompanyForm extends FormBuilder
                             }))
                             ->columnSpan(2),
 
-                    TextInput::make('inscription')
+                    TextInput::make('state_register')
                         ->required()
-                        ->label('Inscrição estadual')
+                        ->label('Inscrição Estadual')
                         ->suffixAction(
                             fn ($set) => Action::make('exempt-action')
                                 ->icon('heroicon-s-x-circle')
                                 ->action(function () use ($set) {
-                                    $set('inscription', 'ISENTO');
+                                    $set('state_register', 'ISENTO');
                                 })->label("Isento")
                         ),
 
@@ -164,6 +163,16 @@ class CompanyForm extends FormBuilder
 
                 ])
                 ->columns(2),
+
+                Grid::make()->schema([
+
+                    MarkdownEditor::make('observation')
+                        ->label('Observações')
+                        ->disableAllToolbarButtons()
+                        ->columnSpan('full'),
+
+                ])
+                ->columns(1),
 
             ];
 
@@ -221,6 +230,13 @@ class CompanyForm extends FormBuilder
                         ->extraAttributes(["class" => "pointer-events-none disabled"])
                         ->label('Cidade'),
 
+                    Select::make('address.state_id')
+                        ->options(State::all()->pluck('initials', 'id'))
+                        ->searchable()
+                        ->required()
+                        ->extraAttributes(["class" => "pointer-events-none disabled"])
+                        ->label('Estado'),
+
                 ])
                 ->columns(2),
 
@@ -233,7 +249,7 @@ class CompanyForm extends FormBuilder
 
             Toggle::make('active')
                 ->label('Status')
-                ->helperText('Define se o Integrador tem acesso ao sistema.')
+                ->helperText('Define se a empresa está ativa.')
                 ->onColor('success')
                 ->offColor('danger')
                 ->default(1)

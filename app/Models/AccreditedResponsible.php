@@ -20,12 +20,6 @@ class AccreditedResponsible extends Model
         'birth',
         'phone',
         'role',
-        'accredited_id'
     ];
-
-    public function accredited(): BelongsTo
-    {
-        return $this->belongsTo(Accredited::class);
-    }
 
 }
