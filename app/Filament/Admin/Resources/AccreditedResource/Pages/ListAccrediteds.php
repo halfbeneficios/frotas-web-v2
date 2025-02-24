@@ -8,12 +8,18 @@ use Filament\Resources\Pages\ListRecords;
 
 class ListAccrediteds extends ListRecords
 {
+
     protected static string $resource = AccreditedResource::class;
 
     protected function getHeaderActions(): array
     {
+
         return [
+
             Actions\CreateAction::make(),
+
         ];
+
     }
+    
 }

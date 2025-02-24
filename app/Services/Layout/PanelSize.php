@@ -12,11 +12,11 @@ class PanelSize
 
         $url = url()->current();
 
-        /* if(str_contains($url, '/')){
+        if(str_contains($url, '/dashboard')){
 
-            return MaxWidth::FiveExtraLarge;
+            return MaxWidth::Full;
 
-        } */
+        }
 
         return MaxWidth::SevenExtraLarge;
 

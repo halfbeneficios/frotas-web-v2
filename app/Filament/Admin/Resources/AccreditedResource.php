@@ -23,6 +23,10 @@ class AccreditedResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
 
+    protected static ?string $navigationGroup = 'Administrativo';
+
+    protected static ?int $navigationSort = 2;
+
     public static function form(Form $form): Form
     {
         return AccreditedForm::make($form);

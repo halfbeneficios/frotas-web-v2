@@ -1,0 +1,171 @@
+@import '/vendor/filament/filament/resources/css/theme.css';
+
+@config 'tailwind.config.js';
+
+.fi-sidebar {
+    @apply bg-primary-700 dark:bg-transparent !important;
+}
+.fi-sidebar-group div span {
+    @apply text-white;
+}
+.fi-sidebar-item-icon {
+    @apply text-white;
+}
+.fi-sidebar-item a {
+    @apply text-white;
+}
+.fi-sidebar-item-label {
+    @apply text-white;
+}
+.fi-btn-label {
+    @apply text-white;
+}
+.fi-sidebar-item a:hover {
+    @apply text-primary-500 bg-primary-400;
+}
+.fi-sidebar-item-active > a:first-child {
+    @apply text-white bg-primary-400;
+}
+.fi-sidebar-item-active .fi-sidebar-item-icon {
+    @apply text-primary-50;
+}
+.fi-main-ctn {
+    @apply dark:bg-transparent;
+}
+
+.bg-gray-100 {
+    background-color: rgb(243 244 246);
+}
+
+.budget-1 {
+    background: rgb(67, 167, 235);
+}
+
+.budget-2 {
+    background: rgb(238, 180, 22);
+}
+
+.budget-3 {
+    background: rgb(190, 72, 18);
+}
+
+.order-1-status {
+    background: rgb(67, 167, 235);
+}
+
+.order-2-status {
+    background: rgb(72, 197, 40);
+}
+
+.order-3-status {
+    background: rgb(54, 67, 185);
+}
+
+.order-4-status {
+    background: rgb(238, 180, 22)
+}
+
+.order-5-status {
+    background: rgb(238, 180, 22)
+}
+
+.order-6-status {
+    background: rgb(238, 180, 22)
+}
+
+.order-7-status {
+    background: rgb(238, 180, 22)
+}
+
+.order-8-status {
+    background: rgb(26, 158, 32);
+}
+
+.order-9-status {
+    background: rgb(190, 72, 18)
+}
+
+.order-10-status {
+    background: rgb(190, 72, 18)
+}
+
+.resume-section .fi-section-content-ctn .fi-section-content {
+    padding: 0 !important;
+}
+
+.bg-red-100 {
+    background-color: rgb(254 226 226);
+}
+
+.bg-red-200 {
+    background-color: rgb(254 202 202);
+}
+
+.flex-header {
+    @apply flex gap-x-3
+}
+
+.flex-custom-card {
+    @apply flex items-center gap-x-3;
+}
+
+.file-upload-custom .filepond--file-info {
+    display: none;
+}
+
+.tooltip-tag-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-tag-wrapper .tooltip-tag-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(196, 190, 190);
+    color: #000000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Posiciona o tooltip acima do texto */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip-tag-wrapper .tooltip-tag-text::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* Embaixo do tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(160, 158, 158) transparent transparent transparent;
+}
+
+.tooltip-tag-wrapper:hover .tooltip-tag-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.icon-4xl svg {
+    height: 2.35rem !important;
+    width: 2.35rem !important;
+}
+
+.icon-5xl svg {
+    height: 3.25rem !important;
+    width: 3.25rem !important;
+}
+
+.activity-section-custom > div > div {
+    padding: 0;
+}
+
+.activity-rounded-none {
+    border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}

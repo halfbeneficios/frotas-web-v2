@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use EightyNine\FilamentPasswordExpiry\Concerns\HasPasswordExpiry;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,6 +17,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable implements FilamentUser
 {
 
+    use HasPasswordExpiry;
     use HasApiTokens;
     use HasFactory;
     use TwoFactorAuthenticatable;
@@ -161,6 +163,12 @@ class User extends Authenticatable implements FilamentUser
         if ($panel->getId() === 'accredited') {
 
             return $this->type_user_id === 5;
+
+        }
+
+        if ($panel->getId() === 'knowledge-base') {
+
+            return true;
 
         }
 

@@ -40,6 +40,10 @@
     background-color: rgb(243 244 246);
 }
 
+.disabled {
+    background-color: rgb(243 244 246);
+}
+
 .order-section .fi-section-content-ctn .fi-section-content {
     padding: 0 !important;
 }

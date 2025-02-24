@@ -11,5 +11,7 @@ export default {
         './resources/views/vendor/**/*.blade.php',
         './resources/views/**/*.blade.php',
         './vendor/diogogpinto/filament-auth-ui-enhancer/resources/**/*.blade.php',
+        './vendor/guava/filament-knowledge-base/src/**/*.php',
+        './vendor/guava/filament-knowledge-base/resources/**/*.blade.php',
     ],
 }

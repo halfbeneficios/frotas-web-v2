@@ -3,19 +3,21 @@
 namespace App\Providers\Filament;
 
 use Agencetwogether\HooksHelper\HooksHelperPlugin;
+use App\Filament\Company\Pages\Login;
 use App\Services\Layout\Avatar;
+use App\Services\Layout\LoginImage;
 use App\Services\Layout\PanelSize;
 use DiogoGPinto\AuthUIEnhancer\AuthUIEnhancerPlugin;
+use EightyNine\FilamentPasswordExpiry\PasswordExpiryPlugin;
 use Filament\Enums\ThemeMode;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
-use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets;
+use Guava\FilamentKnowledgeBase\KnowledgeBasePlugin;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
@@ -23,6 +25,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use pxlrbt\FilamentSpotlight\SpotlightPlugin;
+use Swis\Filament\Backgrounds\FilamentBackgroundsPlugin;
 
 class CompanyPanelProvider extends PanelProvider
 {
@@ -33,7 +36,7 @@ class CompanyPanelProvider extends PanelProvider
         return $panel
             ->id('company')
             ->path('company')
-            ->login()
+            ->login(Login::class)
             ->passwordReset()
             ->colors([
                 'primary' => Color::Blue,
@@ -42,13 +45,8 @@ class CompanyPanelProvider extends PanelProvider
             ->discoverResources(in: app_path('Filament/Company/Resources'), for: 'App\\Filament\\Company\\Resources')
             ->discoverPages(in: app_path('Filament/Company/Pages'), for: 'App\\Filament\\Company\\Pages')
             ->discoverWidgets(in: app_path('Filament/Company/Widgets'), for: 'App\\Filament\\Company\\Widgets')
-            ->pages([
-                Pages\Dashboard::class,
-            ])
-            ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
-            ])
+            ->pages([])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -65,6 +63,12 @@ class CompanyPanelProvider extends PanelProvider
             ])
             ->plugins([
 
+                FilamentBackgroundsPlugin::make()
+                ->showAttribution(false)
+                ->imageProvider(
+                    LoginImage::make()
+                ),
+
                 SpotlightPlugin::make(),
 
                 HooksHelperPlugin::make(),
@@ -72,6 +76,14 @@ class CompanyPanelProvider extends PanelProvider
                 AuthUIEnhancerPlugin::make()
                 ->formPanelWidth('40%')
                 ->formPanelBackgroundColor(Color::Zinc, '100'),
+
+                PasswordExpiryPlugin::make(),
+
+                KnowledgeBasePlugin::make()
+                    ->disableKnowledgeBasePanelButton()
+                    ->slideOverPreviews()
+                    ->modalTitleBreadcrumbs(false)
+                    ->openDocumentationInNewTab(false),
 
             ])
             ->brandLogo(asset('images/layout/logo-company-panel.png'))
