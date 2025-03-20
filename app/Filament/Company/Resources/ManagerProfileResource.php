@@ -21,7 +21,9 @@ class ManagerProfileResource extends Resource
 
     protected static ?string $navigationLabel = 'Perfis de Gestores';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
+
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {

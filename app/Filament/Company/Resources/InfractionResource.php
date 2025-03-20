@@ -21,7 +21,9 @@ class InfractionResource extends Resource
 
     protected static ?string $navigationLabel = 'Infrações de Trânsito';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-exclamation-triangle';
+
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {

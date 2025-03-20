@@ -8,6 +8,7 @@
     "require": {
         "php": "^8.2",
         "agencetwogether/hookshelper": "^0.0.1",
+        "aymanalhattami/filament-slim-scrollbar": "^2.1",
         "diogogpinto/filament-auth-ui-enhancer": "^1.0",
         "eightynine/filament-password-expiry": "^3.0",
         "filament/filament": "^3.2",

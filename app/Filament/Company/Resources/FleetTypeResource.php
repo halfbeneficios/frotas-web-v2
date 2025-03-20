@@ -14,13 +14,13 @@ class FleetTypeResource extends Resource
 
     protected static ?string $model = FleetType::class;
 
-    protected static ?string $modelLabel = 'Tipo de Frota';
+    protected static ?string $modelLabel = 'Tipo';
 
-    protected static ?string $pluralLabel = 'Tipo de Frota';
+    protected static ?string $pluralLabel = 'Tipos de Frota';
 
-    protected static ?string $navigationLabel = 'Tipo de Frota';
+    protected static ?string $navigationLabel = 'Tipos de Frota';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
 
     protected static ?string $navigationGroup = 'Operacional';
 

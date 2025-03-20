@@ -15,7 +15,7 @@ class CostCenterResource extends Resource
 
     protected static ?string $model = CostCenter::class;
 
-    protected static ?string $modelLabel = 'Centro de Custo';
+    protected static ?string $modelLabel = 'Centro';
 
     protected static ?string $pluralLabel = 'Centros de Custo';
 

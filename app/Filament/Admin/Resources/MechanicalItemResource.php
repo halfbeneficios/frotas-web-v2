@@ -12,7 +12,7 @@ use MechanicalItemResource\Filament\Admin\Resources\MechanicalItemResource\Table
 
 class MechanicalItemResource extends Resource
 {
-    
+
     protected static ?string $model = MechanicalItem::class;
 
     protected static ?string $modelLabel = 'Peça/Serviço';
@@ -21,7 +21,9 @@ class MechanicalItemResource extends Resource
 
     protected static ?string $navigationLabel = 'Peças e Serviços';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
+
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {

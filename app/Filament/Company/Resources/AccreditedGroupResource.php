@@ -21,7 +21,7 @@ class AccreditedGroupResource extends Resource
 
     protected static ?string $navigationLabel = 'Grupos de Credenciadas';
 
-    protected static ?string $navigationIcon = 'heroicon-o-queue-list';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     protected static ?string $navigationGroup = 'Operacional';
 

@@ -15,13 +15,13 @@ class ResultCenterResource extends Resource
 
     protected static ?string $model = ResultCenter::class;
 
-    protected static ?string $modelLabel = 'Centro de Resultado';
+    protected static ?string $modelLabel = 'Centro';
 
-    protected static ?string $pluralLabel = 'Centro de Resultados';
+    protected static ?string $pluralLabel = 'Centros de Resultado';
 
-    protected static ?string $navigationLabel = 'Centro de Resultados';
+    protected static ?string $navigationLabel = 'Centros de Resultado';
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-office';
+    protected static ?string $navigationIcon = 'heroicon-o-chart-pie';
 
     protected static ?string $navigationGroup = 'Operacional';
 

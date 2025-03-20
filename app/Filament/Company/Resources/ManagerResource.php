@@ -21,7 +21,11 @@ class ManagerResource extends Resource
 
     protected static ?string $navigationLabel = 'Gestores';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+
+    protected static ?string $navigationGroup = 'Gestão de Frota';
+
+    protected static ?int $navigationSort = 1;
 
     public static function form(Form $form): Form
     {

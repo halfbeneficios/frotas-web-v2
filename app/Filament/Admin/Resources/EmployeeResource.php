@@ -21,7 +21,7 @@ class EmployeeResource extends Resource
 
     protected static ?string $navigationLabel = 'Colaboradores';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
     protected static ?string $navigationGroup = 'Administrativo';
 

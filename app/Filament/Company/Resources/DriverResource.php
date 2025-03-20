@@ -21,7 +21,11 @@ class DriverResource extends Resource
 
     protected static ?string $navigationLabel = 'Motoristas';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-identification';
+
+    protected static ?string $navigationGroup = 'Gestão de Frota';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {

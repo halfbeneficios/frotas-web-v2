@@ -95,6 +95,7 @@ class AdminPanelProvider extends PanelProvider
             ->databaseNotificationsPolling('30s')
             ->navigationGroups([
                 'Administrativo',
+                'Gestão do Sistema',
                 'Configurações',
             ]);
 

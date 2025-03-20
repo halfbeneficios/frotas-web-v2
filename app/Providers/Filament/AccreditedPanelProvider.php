@@ -74,8 +74,12 @@ class AccreditedPanelProvider extends PanelProvider
                 HooksHelperPlugin::make(),
 
                 AuthUIEnhancerPlugin::make()
-                ->formPanelWidth('40%')
-                ->formPanelBackgroundColor(Color::Zinc, '300'),
+                    ->formPanelWidth('37%')
+                    ->formPanelBackgroundColor(Color::hex('#f4f4f5'))
+                    ->formPanelPosition('left')
+                    ->showEmptyPanelOnMobile(false)
+                    ->emptyPanelBackgroundImageOpacity('70%')
+                    ->emptyPanelBackgroundImageUrl('https://i.ibb.co/GfY3h1ZX/banner-login.png'),
 
                 PasswordExpiryPlugin::make(),
 
@@ -96,7 +100,11 @@ class AccreditedPanelProvider extends PanelProvider
             ->databaseNotifications()
             ->defaultAvatarProvider(Avatar::class)
             ->unsavedChangesAlerts(false)
-            ->databaseNotificationsPolling('30s');
+            ->databaseNotificationsPolling('30s')
+            ->navigationGroups([
+                'Gestão do Sistema',
+                'Configurações',
+            ]);
 
     }
 

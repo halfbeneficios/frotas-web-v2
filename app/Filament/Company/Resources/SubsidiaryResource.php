@@ -21,7 +21,7 @@ class SubsidiaryResource extends Resource
 
     protected static ?string $navigationLabel = 'Filiais';
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-library';
+    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
 
     protected static ?string $navigationGroup = 'Operacional';
 

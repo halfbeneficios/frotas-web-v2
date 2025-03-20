@@ -21,7 +21,9 @@ class TagResource extends Resource
 
     protected static ?string $navigationLabel = 'Tags de Identificação';
 
-    protected static ?string $navigationIcon = 'heroicon-o-circle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
+
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function form(Form $form): Form
     {

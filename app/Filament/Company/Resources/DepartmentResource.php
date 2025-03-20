@@ -21,7 +21,7 @@ class DepartmentResource extends Resource
 
     protected static ?string $navigationLabel = 'Departamentos';
 
-    protected static ?string $navigationIcon = 'heroicon-o-building-storefront';
+    protected static ?string $navigationIcon = 'heroicon-o-home-modern';
 
     protected static ?string $navigationGroup = 'Operacional';
 
